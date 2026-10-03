@@ -830,7 +830,7 @@ summary::-webkit-details-marker {
 }
 
 /* Keep the mobile form within the viewport and avoid input-focus zoom on iOS. */
-html,body{width:100%;max-width:100%;overflow-x:clip;overscroll-behavior-x:none;scrollbar-width:none}
+html,body{width:100%;max-width:100%;overflow-x:hidden;overscroll-behavior-x:none;scrollbar-width:none}
 html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
 .site{width:100%;min-width:0}
 .input-wrap{min-width:0}
@@ -842,3 +842,10 @@ html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
   .form-card,.breakdown-card,.calculator-layout,.results-column{max-width:100%;min-width:0}
   .role-menu{max-width:calc(100vw - 64px)}
 }
+
+/* Safari needs the document root itself constrained, including touch panning. */
+html{overscroll-behavior-x:none}
+body{position:relative;touch-action:pan-y pinch-zoom;-webkit-text-size-adjust:100%}
+#root{width:100%;max-width:100%;min-width:0;overflow-x:hidden}
+.site{max-width:min(1220px,100%)}
+@media(max-width:780px){.site{max-width:min(620px,100%)}.hours-section,.hours-groups,.basics,.field,.role-heading,.salary-detail-columns,.salary-detail-totals{min-width:0;max-width:100%}.input-wrap input{max-width:100%}}
