@@ -7,30 +7,6 @@
   margin-bottom: 10px;
   border-bottom: 1px solid #e1e6df;
 }
-.brand {
-  position: absolute;
-  inset-inline-start: 0;
-  top: 8px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 23px;
-  font-weight: 800;
-  letter-spacing: -0.8px;
-}
-.brand-mark {
-  width: 56px;
-  height: 56px;
-  display: grid;
-  place-items: center;
-}
-.brand-mark img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-
-  display: block;
-}
 .header-title {
   margin: 0;
   color: #184e3b;
@@ -43,15 +19,6 @@
   .topbar {
     height: 56px;
   }
-  .brand {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .brand-mark,
-  .brand-mark img {
-    width: 44px;
-    height: 44px;
-  }
   .header-title {
     font-size: 20px;
     line-height: 1;
@@ -61,11 +28,6 @@
   .topbar {
     height: 52px;
     margin-bottom: 10px;
-  }
-  .topbar .brand-mark,
-  .topbar .brand-mark img {
-    width: 40px;
-    height: 40px;
   }
   .header-title {
     font-size: 18px;

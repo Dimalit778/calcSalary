@@ -139,7 +139,7 @@ it('calculates meal units, weekend travel and shift premium without duplicating 
   expect(screen.getByLabelText('כלכלה גדולה').getAttribute('aria-invalid')).toBe('true');
 });
 
-it('offers four predefined wages and restores the selected role', () => {
+it('offers three predefined wages and restores the selected role', () => {
   const view = render(<App />);
   const select = screen.getByLabelText('תפקיד');
   expect(select.tagName).toBe('BUTTON');
@@ -179,7 +179,7 @@ it('adds monthly travel only once wage, hours and credits are complete', () => {
 
 it('removes payslip reconciliation controls and ignores their old saved values', () => {
   const draft = {
-    ...initialDraft(), hourlyWage: '44.13', hours100: '150', creditPoints: '7.25',
+    ...initialDraft(), hourlyWage: '57.85', hours100: '150', creditPoints: '7.25',
     taxableBenefits: '500', arrearsPayments: '2000', arrearsDeductions: '250',
     cumulativeTaxEnabled: true, cumulativeTaxableIncome: '75000',
     cumulativePensionCredit: '1400', taxPaidBeforeMonth: '0',
