@@ -52,6 +52,8 @@ it('hides contribution and expense sections and rejects invalid values', () => {
   expect(screen.queryByLabelText('כולל קצובת נסיעה חודשית')).toBeNull();
   fill('שעות רגילות', '-2');
   expect(screen.getByLabelText('שעות רגילות').getAttribute('aria-invalid')).toBe('true');
+  expect(screen.queryByText('יש להזין מספר חיובי או אפס')).toBeNull();
+  expect(screen.getByLabelText('שעות רגילות').getAttribute('aria-describedby')).toBeNull();
   fill('שעות רגילות', '150');
   calculate();
   expect(screen.getByTestId('net').textContent).toContain(expected('net'));
@@ -139,8 +141,10 @@ it('calculates meal units, weekend travel and shift premium without duplicating 
   expect(screen.getByLabelText('כלכלה גדולה').getAttribute('aria-invalid')).toBe('true');
 });
 
-it('offers three predefined wages and restores the selected role', () => {
+it('offers four predefined wages and restores the selected role', () => {
   const view = render(<App />);
+  expect(WAGE_OPTIONS).toHaveLength(4);
+  expect(restoreDraft(JSON.stringify({ version: 1, draft: { hourlyWage: '44.13' } })).hourlyWage).toBe('44.13');
   const select = screen.getByLabelText('תפקיד');
   expect(select.tagName).toBe('BUTTON');
   expect(select.getAttribute('aria-expanded')).toBe('false');

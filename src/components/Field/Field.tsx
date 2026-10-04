@@ -53,7 +53,7 @@ export default function Field({
           value={value}
           placeholder={placeholder}
           aria-invalid={!!error}
-          aria-describedby={error || hint ? `${id}-help` : undefined}
+          aria-describedby={hint ? `${id}-help` : undefined}
           onChange={(e) => onChange(variant === 'hours' ? clampHoursInput(e.target.value) : e.target.value)}
         />
         {unit && (
@@ -62,9 +62,9 @@ export default function Field({
           </span>
         )}
       </div>
-      {(error || hint) && (
-        <p id={`${id}-help`} className={error ? 'field-error' : 'field-hint'}>
-          {error || hint}
+      {hint && (
+        <p id={`${id}-help`} className="field-hint">
+          {hint}
         </p>
       )}
     </div>

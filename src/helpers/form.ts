@@ -3,6 +3,7 @@ export const WAGE_OPTIONS = [
   { value: '57.85', label: 'קמ״ת - 57.85₪' },
   { value: '56.13', label: 'אחמ״ש - 56.13₪' },
   { value: '54.42', label: 'מאבטח - 54.42₪' },
+  { value: '44.13', label: 'אחמ״ש ישן - 44.13₪' },
 ];
 export interface Draft {
   hourlyWage: string;
