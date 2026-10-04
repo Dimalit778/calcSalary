@@ -80,7 +80,7 @@ export function calculateSalary(input: SalaryInput) {
     input.arrearsDeductions,
   ])
     positive(value ?? 0, 'תוספות');
-  const shift50Hours = input.shift50Hours ?? (input.fixedProfile ? input.hours.saturdayAccount ?? 0 : 0);
+  const shift50Hours = input.shift50Hours ?? 0;
   const shift20Wage = input.fixedProfile
     ? roundMoney(roundMoney(input.hourlyWage * 0.2) * (input.shift20Hours ?? 0))
     : input.hourlyWage * 0.2 * (input.shift20Hours ?? 0);

@@ -276,3 +276,15 @@ it('calculates accumulated liability, subtracts tax already withheld, and permit
   expect(() => calculateSalary(fixture({ taxableBenefits: -1 }))).toThrow();
   expect(() => calculateSalary(fixture({ cumulativeTax: { ...cumulative, pensionCredit: NaN } }))).toThrow();
 });
+
+it('does not add a 50% premium when Saturday hours already have their own categories', () => {
+  const r = calculateSalary(fixture({
+    fixedProfile: true, hourlyWage: 50,
+    hours: { '100': 0, '125': 0, '150': 0, '200': 0, saturdayAccount: 10, saturday150: 10 },
+  }));
+  expect(r.wages.saturdayAccount).toBe(500);
+  expect(r.wages.saturday150).toBe(750);
+  expect(r.shift50Wage).toBe(0);
+  expect(r.hoursWage).toBe(1250);
+  expect(r.gross).toBe(1235);
+});

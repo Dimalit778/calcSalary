@@ -249,3 +249,14 @@ it('blocks invalid credit points and supports submitting the form', () => {
   fireEvent.submit(screen.getByRole('form', { name: 'נתוני חישוב השכר' }));
   expect(screen.getByTestId('net')).toBeDefined();
 });
+
+it('ignores saved 50% premiums and omits them from the breakdown', () => {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 1, draft: {
+    ...initialDraft(), hourlyWage: '57.85', creditPoints: '2.25',
+    hourssaturdayAccount: '8', hourssaturday150: '8', shift50Hours: '8', travelEnabled: false,
+  } }));
+  render(<App />);
+  calculate();
+  expect(screen.getByTestId('gross').textContent).toContain('1,143.16');
+  expect(screen.queryByText('תוספת משמרת 50%')).toBeNull();
+});

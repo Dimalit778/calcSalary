@@ -34,7 +34,6 @@ export default function Breakdown({ draft, parsed, result, net }: BreakdownProps
       { label: 'קצובת נסיעה חודשית', amount: parsed.input.travel },
       { label: 'החזרי הוצאות נוספים', amount: Number((draft.otherExpenses || '0').replace(',', '.')) },
       { label: 'הבראה', amount: parsed.input.recovery ?? 0 },
-      { label: 'תוספת משמרת 50%', amount: result?.shift50Wage ?? 0 },
       { label: 'תוספת כללית', amount: parsed.input.extra },
       { label: 'הפחתת שכר 1.2%', amount: -(result?.regularReduction ?? 0) },
       { label: 'הפחתת עבודה נוספת 1.2%', amount: -(result?.overtimeReduction ?? 0) },

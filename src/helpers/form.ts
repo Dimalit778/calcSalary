@@ -28,7 +28,6 @@ export interface Draft {
   otherExpenses: string;
   recovery: string;
   shift20Hours: string;
-  shift50Hours: string;
 }
 export const initialDraft = (): Draft => ({
   hourlyWage: '',
@@ -53,7 +52,6 @@ export const initialDraft = (): Draft => ({
   otherExpenses: '',
   recovery: '',
   shift20Hours: '',
-  shift50Hours: '',
 });
 export function parseDraft(draft: Draft) {
   const errors: Partial<Record<keyof Draft, string>> = {};
@@ -90,14 +88,13 @@ export function parseDraft(draft: Draft) {
     otherExpenses = number('otherExpenses') + number('largeMeals', 744) * 21.1 + number('smallMeals', 744) * 14.5,
     recovery = number('recovery');
   if (!Number.isInteger(saturdayTrips)) errors.saturdayTrips = 'יש להזין מספר נסיעות שלם';
-  const shift20Hours = number('shift20Hours', 744),
-    shift50Hours = draft.shift50Hours.trim() === '' ? undefined : number('shift50Hours', 744);
+  const shift20Hours = number('shift20Hours', 744);
   const gross =
     HOUR_CATEGORIES.reduce(
       (sum, category) => sum + ((hours[category.key] ?? 0) * hourlyWage * category.percent) / 100,
       travel + extra + saturdayTrips * 23 + otherExpenses + recovery,
     ) +
-    hourlyWage * (shift20Hours * 0.2 + (shift50Hours ?? hours.saturdayAccount ?? 0) * 0.5);
+    hourlyWage * shift20Hours * 0.2;
   const pension = { enabled: true, percent: 7, base: null };
   const studyFund = { enabled: true, percent: 2.5, base: null };
   const month = Number(draft.month);
@@ -109,7 +106,6 @@ export function parseDraft(draft: Draft) {
     saturdayTrips,
     otherExpenses,
     shift20Hours,
-    shift50Hours,
     year: 2026,
     month,
     hourlyWage,
