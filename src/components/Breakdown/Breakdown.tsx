@@ -106,24 +106,21 @@ export default function Breakdown({ draft, parsed, result, net }: BreakdownProps
                 <div
                   className="distribution-bar"
                   role="img"
-                  aria-label={`נטו ${money(net)}, מסים וביטוח ${money(taxSum)}, חיסכון ${money(savingsSum)}`}
+                  aria-label={`נטו ${money(net)}, הורדות ${money(taxSum)}, חיסכון ${money(savingsSum)}`}
                 >
                   <span className="net-segment" style={{ width: `${(Math.max(0, net) / result.gross) * 100}%` }} />
                   <span className="tax-segment" style={{ width: `${(taxSum / result.gross) * 100}%` }} />
                   <span className="saving-segment" style={{ width: `${(savingsSum / result.gross) * 100}%` }} />
                 </div>
                 <div className="distribution-legend">
-                  <span>
-                    <i className="legend-dot net" />
+                  <span style={{ width: `${(Math.max(0, net) / result.gross) * 100}%` }}>
                     נטו
                   </span>
-                  <span>
-                    <i className="legend-dot tax" />
-                    מסים וביטוח
+                  <span style={{ width: `${(taxSum / result.gross) * 100}%` }}>
+                    הורדות
                   </span>
-                  <span>
-                    <i className="legend-dot saving" />
-                    החיסכון שלך
+                  <span style={{ width: `${(savingsSum / result.gross) * 100}%` }}>
+                    חיסכון
                   </span>
                 </div>
               </div>
