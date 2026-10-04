@@ -1,0 +1,89 @@
+.role-picker {
+  position: relative;
+  width: auto;
+  flex: 1 1 0;
+  min-width: 0;
+}
+.role-trigger {
+  display: flex;
+  width: 150px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #d5e0d6;
+  border-radius: 12px;
+  height: 40px;
+  padding: 0 10px;
+  color: #314b3e;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: right;
+}
+.role-trigger-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.role-trigger[aria-expanded='true'] {
+  border-color: #60967b;
+  box-shadow: 0 0 0 3px #60967b15;
+}
+.role-trigger:focus-visible {
+  outline: 3px solid #60967b55;
+  outline-offset: 2px;
+}
+.role-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: max-content;
+  z-index: 20;
+  background: #fff;
+  border: 1px solid #dce6dc;
+  border-radius: 13px;
+  padding: 6px;
+  box-shadow: 0 10px 28px #183c2924;
+}
+.role-menu button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 12px;
+  text-align: right;
+  font: inherit;
+  font-size: 14px;
+  color: #314b3e;
+  cursor: pointer;
+}
+.role-menu button:hover,
+.role-menu button:focus-visible {
+  background: #f0f5ee;
+  outline: none;
+}
+.role-menu button.selected {
+  background: #e7f1e7;
+  color: #145e45;
+  font-weight: 600;
+}
+@media (max-width: 480px) {
+  .role-trigger {
+    padding: 0 10px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 780px) {
+  .role-trigger {
+    font-size: 14px;
+  }
+  .role-menu {
+    max-width: calc(100vw - 10px);
+  }
+}

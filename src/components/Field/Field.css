@@ -1,0 +1,127 @@
+.field > label {
+  display: block;
+  font-size: 14px;
+  color: #66745f;
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+.input-wrap {
+  position: relative;
+  min-width: 0;
+}
+.input-wrap input {
+  background: #fff;
+  border: 1px solid #dce3d9;
+  border-radius: 9px;
+  color: #2d483b;
+  width: 100%;
+  height: 22px;
+  padding: 4px 10px 4px 48px;
+  outline: none;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+.input-wrap input:focus {
+  border-color: #5d977b;
+  box-shadow: 0 0 0 3px #5d977b1c;
+}
+.input-wrap input::placeholder {
+  font-size: 14px;
+  color: #65715f;
+}
+.large-field input {
+  font-size: 20px;
+  font-weight: 600;
+}
+.large-field input::placeholder {
+  font-size: 13px;
+  font-weight: 400;
+}
+.field-credits > label {
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 500;
+  color: #314b3e;
+  margin-bottom: 6px;
+  text-align: center;
+}
+.field-credits .input-wrap input {
+  height: 42px;
+  padding: 0 8px;
+  border: 1px solid #d5e0d6;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1;
+}
+.field-credits .input-wrap input::placeholder {
+  color: #8ea096;
+  font-size: 15px;
+  font-weight: 500;
+}
+.field-hours {
+  position: relative;
+  margin: 0;
+}
+.field-hours .field-error {
+  font-size: 10px;
+}
+.field-hours .input-wrap input {
+  height: 36px;
+  padding: 0 6px;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  min-width: 0;
+}
+.field-hours .input-wrap input:focus::placeholder {
+  color: transparent;
+}
+.unit {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #66745f;
+  pointer-events: none;
+}
+.field-hint {
+  color: #66745f;
+  margin-top: 7px;
+  font-size: 11px;
+}
+.field-error {
+  font-size: 11px;
+  margin-top: 7px;
+  line-height: 1.5;
+  color: #ac3a2f;
+}
+.invalid input {
+  border-color: #c26b62;
+  background: #fff9f8;
+}
+@media (max-width: 780px), (hover: none) and (pointer: coarse) {
+  .field {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .input-wrap input {
+    font-size: 16px;
+    max-width: 100%;
+  }
+  .field-credits .input-wrap input,
+  .field-credits .input-wrap input::placeholder {
+    font-size: 16px;
+  }
+  .field-hours .input-wrap input,
+  .field-hours .input-wrap input::placeholder {
+    /* Keep touch inputs at 16px to prevent iPhone focus zoom. */
+    font-size: 16px;
+    line-height: 1;
+  }
+}

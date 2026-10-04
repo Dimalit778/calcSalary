@@ -1,0 +1,104 @@
+.basics {
+  display: grid;
+  background: #fff;
+  border: 1px solid #d8e0d3;
+  border-radius: 11px;
+  padding: 10px;
+  box-shadow: 0 4px 18px #183c2924;
+  gap: 2px;
+}
+.basics.single-role {
+  grid-template-columns: 1fr;
+}
+.role-heading {
+  --control-size: 42px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 0;
+}
+.role-and-credits {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+.reset-top {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: var(--control-size);
+  width: 112px;
+  min-width: 112px;
+  background: #fff;
+  border: 1px solid #d5e0d6;
+  border-radius: 12px;
+  padding: 0 14px;
+  color: #314b3e;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.reset-top:hover {
+  background: #f3f7f2;
+  border-color: #b7cbbd;
+}
+.reset-top:focus-visible {
+  outline: 3px solid #60967b55;
+  outline-offset: 2px;
+}
+.credits-simple {
+  width: 96px;
+  margin-top: 10px;
+  margin-inline: auto;
+}
+.calculate-button {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 11px;
+  background: #245b43;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.calculate-button:hover:not(:disabled) { background: #194631; }
+.calculate-button:disabled { background: #dce5dc; color: #68796d; cursor: not-allowed; }
+.calculate-button:focus-visible { outline: 3px solid #60967b; outline-offset: 3px; }
+@media (max-width: 780px) {
+  .basics,
+  .role-heading {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+@media (max-width: 480px) {
+  .role-heading,
+  .role-and-credits {
+    gap: 8px;
+  }
+  .credits-simple {
+    flex-basis: 78px;
+    width: 78px;
+  }
+  .role-heading .reset-top {
+    width: 78px;
+    min-width: 78px;
+    padding: 0 6px;
+    gap: 4px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 450px) {
+  .basics {
+    gap: 13px;
+  }
+}

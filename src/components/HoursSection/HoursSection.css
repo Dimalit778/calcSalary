@@ -1,0 +1,54 @@
+.hours-section {
+  padding-top: 10px;
+}
+
+.hours-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.hours-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  border: 1px solid #eef3ed;
+  border-radius: 10px;
+  background: #eef3ed;
+  overflow: hidden;
+}
+
+.hours-group-cell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 12px;
+  min-width: 0;
+  background: #fff;
+}
+
+.hours-group-cell .field-hours {
+  flex: 0 0 96px;
+  width: 96px;
+}
+
+.hours-group-label {
+  min-width: 0;
+  text-align: start;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+@media (max-width: 520px) {
+  .hours-group-cell .field-hours {
+    flex-basis: 70px;
+    width: 70px;
+  }
+  .hours-group-label {
+    font-size: 14px;
+  }
+}

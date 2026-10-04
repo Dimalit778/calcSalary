@@ -5,3 +5,6 @@ dist/
 
 # Local design research and screenshots
 docs/
+
+# Local regression fixtures from private payslips
+src/helpers/payslips.test.ts

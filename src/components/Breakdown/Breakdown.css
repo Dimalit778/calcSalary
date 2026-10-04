@@ -1,0 +1,235 @@
+.results-column {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  position: static;
+  width: 100%;
+  min-width: 0;
+}
+.breakdown-card {
+  background: white;
+  border: 1px solid #e2e7df;
+  border-radius: 17px;
+  padding: 23px 25px 18px;
+}
+.collapsible-breakdown summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  list-style: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #294e3e;
+}
+.collapsible-breakdown summary::-webkit-details-marker {
+  display: none;
+}
+.collapsible-breakdown summary:focus-visible {
+  outline: 3px solid #5d977b;
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+.collapsible-breakdown summary svg {
+  transition: transform 0.2s;
+}
+.collapsible-breakdown[open] summary {
+  margin-bottom: 18px;
+}
+.collapsible-breakdown[open] summary svg,
+.collapsible-breakdown[open] > summary > svg {
+  transform: rotate(180deg);
+}
+.collapsible-breakdown > summary {
+  position: relative;
+  display: block;
+}
+.collapsible-breakdown > summary > svg {
+  position: absolute;
+  inset-inline-end: 0;
+  top: 50%;
+  margin-top: -9px;
+}
+.breakdown-totals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+  width: 100%;
+  gap: 24px;
+}
+.breakdown-totals > span {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #65766c;
+}
+.breakdown-totals > span + span {
+  border-inline-start: 1px solid #e1e8de;
+  padding-inline-start: 24px;
+}
+.breakdown-totals strong {
+  font-size: 23px;
+  color: #184e3b;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.salary-detail-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+}
+.salary-detail-columns section + section {
+  border-inline-start: 1px solid #e1e8de;
+  padding-inline-start: 24px;
+}
+.salary-detail-columns h3 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #476651;
+}
+.salary-detail-list {
+  margin: 0;
+}
+.salary-detail-list > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 0;
+  font-size: 12px;
+  border-bottom: 1px solid #eef1eb;
+}
+.salary-detail-list dd {
+  margin: 0;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.salary-detail-totals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  border-top: 1px solid #dce5d9;
+  margin-top: 18px;
+  padding-top: 15px;
+}
+.salary-detail-totals > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+}
+.salary-detail-totals strong {
+  color: #174e3b;
+  white-space: nowrap;
+}
+.distribution {
+  margin-top: 19px;
+}
+.distribution-bar {
+  display: flex;
+  height: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  direction: rtl;
+  gap: 3px;
+  background: #f1f3ed;
+}
+.net-segment {
+  background: #28654f;
+}
+.tax-segment {
+  background: #ddbc94;
+}
+.saving-segment {
+  background: #a9bd94;
+}
+.distribution-legend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 9px;
+  color: #66745f;
+  font-size: 10px;
+}
+.distribution-legend > span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.legend-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.legend-dot.tax {
+  background: #d9b185;
+}
+.legend-dot.saving {
+  background: #a4b795;
+}
+.legend-dot.net {
+  background: #205b49;
+}
+.result-notice {
+  font-size: 13px;
+  line-height: 1.8;
+  padding: 20px 0;
+  color: #a06648;
+}
+.breakdown-warning {
+  font-size: 11px;
+  margin-top: 7px;
+  line-height: 1.5;
+  color: #ac3a2f;
+}
+@media (max-width: 1020px) {
+  .breakdown-card {
+    padding: 21px 20px;
+  }
+}
+@media (max-width: 780px) {
+  .results-column,
+  .breakdown-card,
+  .salary-detail-columns,
+  .salary-detail-totals {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+@media (max-width: 480px) {
+  .breakdown-totals {
+    gap: 12px;
+  }
+  .breakdown-totals > span + span {
+    padding-inline-start: 12px;
+  }
+  .breakdown-totals strong {
+    font-size: 20px;
+  }
+  .salary-detail-columns,
+  .salary-detail-totals {
+    gap: 12px;
+  }
+  .salary-detail-columns section + section {
+    padding-inline-start: 12px;
+  }
+  .salary-detail-list > div {
+    font-size: 10px;
+    gap: 4px;
+  }
+  .salary-detail-totals > div {
+    font-size: 11px;
+  }
+}
+@media print {
+  .results-column {
+    margin-top: 20px;
+  }
+  .breakdown-card {
+    break-inside: avoid;
+  }
+}
