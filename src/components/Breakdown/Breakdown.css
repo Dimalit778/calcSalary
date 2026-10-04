@@ -137,14 +137,17 @@
   gap: 3px;
   background: #f1f3ed;
 }
-.net-segment {
+.net-segment,
+.legend-dot.net {
   background: #28654f;
 }
-.tax-segment {
-  background: #ddbc94;
+.tax-segment,
+.legend-dot.tax {
+  background: #d94b45;
 }
-.saving-segment {
-  background: #a9bd94;
+.saving-segment,
+.legend-dot.saving {
+  background: #e99032;
 }
 .distribution-legend {
   display: flex;
@@ -164,15 +167,6 @@
   height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
-}
-.legend-dot.tax {
-  background: #d9b185;
-}
-.legend-dot.saving {
-  background: #a4b795;
-}
-.legend-dot.net {
-  background: #205b49;
 }
 .result-notice {
   font-size: 13px;
