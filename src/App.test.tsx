@@ -141,10 +141,10 @@ it('calculates meal units, weekend travel and shift premium without duplicating 
   expect(screen.getByLabelText('כלכלה גדולה').getAttribute('aria-invalid')).toBe('true');
 });
 
-it('offers four predefined wages and restores the selected role', () => {
+it('offers three predefined wages and restores the selected role', () => {
   const view = render(<App />);
-  expect(WAGE_OPTIONS).toHaveLength(4);
-  expect(restoreDraft(JSON.stringify({ version: 1, draft: { hourlyWage: '44.13' } })).hourlyWage).toBe('44.13');
+  expect(WAGE_OPTIONS).toHaveLength(3);
+  expect(restoreDraft(JSON.stringify({ version: 1, draft: { hourlyWage: '44.13' } })).hourlyWage).toBe('');
   const select = screen.getByLabelText('תפקיד');
   expect(select.tagName).toBe('BUTTON');
   expect(select.getAttribute('aria-expanded')).toBe('false');
